@@ -7,13 +7,14 @@ import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class MainClass extends Activity implements OnClickListener {
+public class MainClass extends FragmentActivity implements OnClickListener {
 
 	private LinearLayout content;
 	private TextView  tv1;
@@ -21,8 +22,8 @@ public class MainClass extends Activity implements OnClickListener {
 	private TextView  tv3;
 	private TextView  tv4;
 	
-	private FragmentManager fm;
-	private FragmentTransaction ft;
+	private android.support.v4.app.FragmentManager fm;
+	private android.support.v4.app.FragmentTransaction ft;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +42,7 @@ public class MainClass extends Activity implements OnClickListener {
 		tv3.setOnClickListener(this);
 		tv4.setOnClickListener(this);
 		
-		fm = getFragmentManager();
+		fm = getSupportFragmentManager();
 		ft = fm.beginTransaction();
 		ft.replace(R.id.content, new fragment2());
 		ft.commit();
